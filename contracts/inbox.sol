@@ -2,7 +2,7 @@
 
 pragma solidity  ^0.8.11; // specifies the solidity versionm in use 
 //version identifier
-contract Inbox {//contract definition 
+contract inbox {//contract definition 
 // similar to class definition 
     string public message; // storage variable(Instance exists for the life of the contract ) -> accessible to anyone in the world 
     // public specifies who has access
@@ -10,7 +10,7 @@ contract Inbox {//contract definition
     // local variables are thrown out after execiution dont live in the blockchain
 
 
-    function inbox( string memory initialMessage )  public {// fx has the same name as contract => Constructor fx called atutomatically one time when contract is created 
+    function Inbox( string memory initialMessage )  public {// fx has the same name as contract => Constructor fx called atutomatically one time when contract is created 
         message = initialMessage;
     }
  

@@ -1,35 +1,40 @@
-const path  = require('path');// path guarantees cross platform compatibility always generate a valid path
-const fs =  require('fs');// file system module
+// // standard modules
+const path = require('path')
+const fs = require ('fs')
+
 const solc = require('solc');
+// We will have cross platform compatipility. 
+//__dirname it used by node to take you to the root directory.
+const inboxPath = path.resolve(__dirname, 'contracts','inbox.sol');
+ //Reading the contents of the file.
+ const source = fs.readFileSync(inboxPath,'utf8');
+
+// // number of sources we are compiling is one.
+// module.exports = solc.compile(source,1).contracts[':Inbox'];
 
 
-const inboxPath = path.resolve(__dirname, 'contracts', 'inbox.sol'); // generate path to the sol file 
-
-
-// read in raw source code from the contract
-const source = fs.readFileSync(inboxPath,'utf8');// specify type of encoding for inbox.sol
-
-var input = {
-    lanuage: 'Solidity',
+const input = {
+    language: "Solidity",
     sources: {
-        "inbox.sol":{
-            content: source,
-        },
+      "inbox.sol": {
+        content: source,
+      },
     },
     settings: {
-        outPutSElection: {
-            "*": {
-                "*":["*"],
-            },
+      outputSelection: { 
+        "*": {
+          "*": ["*"],
         },
+      },
     },
-};
-var output = JSON.parse(solc.compile(JSON.stringify(input)));
-var outputContracts = output.contracts['inbox.sol']['Inbox']
+  };
+  const output = JSON.parse(solc.compile(JSON.stringify(input)));
+  // `output` here contains the JSON output as specified in the documentation
+  var outputContracts = output.contracts['inbox.sol']['inbox']
 
-module.exports.abi = outputContracts.abi//exports the abi
-module.exports.bytecode = outputContracts.evm.bytecode.object
-// .contracts access the contracts property 
-// [:inbox] on contracts we further pull the inbox property just bytecode and interface which is our ABI 
-
+  // exports ABI interface
+  module.exports.abi = outputContracts.abi;
+  
+  // exports bytecode from smart contract
+  module.exports.bytecode = outputContracts.evm.bytecode.object;
 
