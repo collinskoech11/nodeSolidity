@@ -10,7 +10,7 @@ contract inbox {//contract definition
     // local variables are thrown out after execiution dont live in the blockchain
 
 
-    function Inbox( string memory initialMessage )  public {// fx has the same name as contract => Constructor fx called atutomatically one time when contract is created 
+    constructor (string memory initialMessage )  {// fx has the same name as contract => Constructor fx called atutomatically one time when contract is created 
         message = initialMessage;
     }
  
