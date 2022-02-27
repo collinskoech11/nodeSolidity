@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 
-pragma solidity  ^0.8.12; // specifies the solidity versionm in use 
+pragma solidity  ^0.8.11; // specifies the solidity versionm in use 
 //version identifier
 contract Inbox {//contract definition 
 // similar to class definition 

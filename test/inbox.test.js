@@ -3,7 +3,7 @@ const  ganache = require('ganache-cli');
 const Web3 = require('web3');// cAPITAL Is a constructor function 
 //assign an instance to work with variable that is lowercase for web3 
 const web3 = new Web3(ganache.provider());// creates an instance Of Web3 and tells it to try to connect to the local test network for testing 
-const {interface, bytecode} = require('../compile')
+const {abi, bytecode} = require('../compile')
 
 let accounts;
 let inbox; 
@@ -17,7 +17,7 @@ beforeEach(async () => {
     //      console.log(fetchedAccounts)//displays the accounts fetched from ganache 
     //  })
     // use one of the accounts to deploy the contract
-    inbox = await new web3.eth.Contract(JSON.parse(interface))// Teaches  web3 about what methods an inbox contract has 
+    inbox = await new web3.eth.Contract((abi))// Teaches  web3 about what methods an inbox contract has 
     .deploy({ data: bytecode, arguments: ['Hi there!'] })// Tells web3 that we want to deploy a new copy of the contract
     .send({from: accounts[0], gas: '1000000'});// Instructs web3 to send out a transaction that creates this contract 
 });

@@ -3,13 +3,32 @@ const fs =  require('fs');// file system module
 const solc = require('solc');
 
 
-const inboxPath = path.resolve(__dirname, 'contracts', 'Inbox.sol'); // generate path to the sol file 
+const inboxPath = path.resolve(__dirname, 'contracts', 'inbox.sol'); // generate path to the sol file 
 
 
 // read in raw source code from the contract
 const source = fs.readFileSync(inboxPath,'utf8');// specify type of encoding for inbox.sol
 
-module.exports = solc.compile(source, 1).contracts[':Inbox'];// ensure the outputs is accessible to all files in the project
+var input = {
+    lanuage: 'Solidity',
+    sources: {
+        "inbox.sol":{
+            content: source,
+        },
+    },
+    settings: {
+        outPutSElection: {
+            "*": {
+                "*":["*"],
+            },
+        },
+    },
+};
+var output = JSON.parse(solc.compile(JSON.stringify(input)));
+var outputContracts = output.contracts['inbox.sol']['Inbox']
+
+module.exports.abi = outputContracts.abi//exports the abi
+module.exports.bytecode = outputContracts.evm.bytecode.object
 // .contracts access the contracts property 
 // [:inbox] on contracts we further pull the inbox property just bytecode and interface which is our ABI 
 
