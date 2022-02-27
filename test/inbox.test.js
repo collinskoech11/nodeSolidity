@@ -1,3 +1,4 @@
+const { strictEqual } = require('assert');
 const assert = require('assert');
 const  ganache = require('ganache-cli');
 const Web3 = require('web3');// cAPITAL Is a constructor function 
@@ -18,24 +19,24 @@ beforeEach(async () => {
     //  })
     // use one of the accounts to deploy the contract
     inbox = await new web3.eth.Contract((abi))// Teaches  web3 about what methods an inbox contract has 
-    .deploy({ data: bytecode, arguments: ['Hi there!'] })// Tells web3 that we want to deploy a new copy of the contract
+    .deploy({ data: bytecode, arguments: ['Hi there!']})// Tells web3 that we want to deploy a new copy of the contract
     .send({from: accounts[0], gas: '1000000'});// Instructs web3 to send out a transaction that creates this contract 
 });
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-        assert.ok(inbox.options.address)//ok method makes an assertion that the value we've passed in is ok(Is an assigned value)
+        assert.ok(inbox.options.address);//ok method makes an assertion that the value we've passed in is ok(Is an assigned value)
     });
 
     it('has a default message', async () => {
         const message = await inbox.methods.message().call();//inbox js object repping the contract , contract has methods which is an object that contains all the fx on the contract
-        assert.equal(message, 'Hi there!');
+        strictEqual(message,'Hi there!');
     });
 
     it('Can change the message', async () => {//modifying contracts data is a tx
         await inbox.methods.setMessage('Bye').send({ from: accounts[0] });
         const message = await inbox.methods.message().call();
-        assert.equal(message, 'bye');
+        assert.equal(message,'Bye');
     });
 });
 // class Car {
