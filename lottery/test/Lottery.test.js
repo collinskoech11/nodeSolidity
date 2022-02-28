@@ -52,4 +52,16 @@ describe('Lottery Contract', () => {
         assert.equal(accounts[2], players[2]);
         assert.equal(3, players.length)
     });
+
+    it('requires an minimum amount of ether to enter ', async () => {
+        try{
+            await lottery.methods.enter().send({
+                from: accounts[0],
+                value: 200//wei
+            });
+            assert(false)//fails the test 
+        } catch(err) {// automatically fetch errors that are thrown by asyncronous functions 
+            assert(err);
+        };
+    });
 });
