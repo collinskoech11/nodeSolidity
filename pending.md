@@ -27,7 +27,7 @@ keep track via telegram(feature)
 
 
 objective parahrase 
-copy paste spec sheet 
+copy paste spec sheet s
 features 
 as per above features -> elaborate 
 screenshots (screenshot of a telegram bot) -> radar protocol
@@ -50,3 +50,60 @@ Lessons learnt (Discoveries)
 Next steps (Onceapp pekee) -> mobile app -> web app version + additional features 
 
 Have a look at the milestones(Deliverables)
+
+
+
+Algorand focus areas (Languages Teal and Javascript )
+Create marketplace for selling NFTs
+ 
+ Discoveries 
+Less projects on algorand -> most are closed source 
+Teal Programming language  LOw level languaege -> assembly language 
+
+Challenges 
+Learning Teal -> Low level language 
+
+
+Phase 2 => Intergrating smart contract with UI 
+
+
+Pancake swap 
+Challenges 
+Rughs -> Tokens bought that cant be sold (How to solve -> rug doc (Simulating the trade check )) Risk analysis  AXIOS -> 
+Finding a pair not to be of base token Bnb -> base token Busd 
+Provider not giving transaction data (Late) -> Mempool all transactions go before mining 
+ => causes buying delay
+Developing simulation logic (Broadcast a transaction)
+Before transacting you have to simulate to check if the transaction is profitable 
+Unable to frontrun =>BUying the same block but different positions 
+
+Area of Focus
+Calculating slippage -> Pricing pact 
+Calculating buy attack amount 
+
+Discoveries 
+Optimization => Getting the right parameters gas optimization 
+ -> comparing two target tx 
+
+
+Sandwich (Pool  combination of a token pair base token rbnb )
+
+
+
+
+Pending 
+Once app => hours worked  => 500 
+            => team 
+
+
+Hours worked
+Team 
+General objective 
+Spec sheet + objective as is 
+        fx delivered
+features delivered
+Features (from screenshots) => 
+tech stack -> expound on tech stack 
+Developers input
+challenges 
+discoveries 
