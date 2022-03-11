@@ -107,3 +107,5 @@ tech stack -> expound on tech stack
 Developers input
 challenges 
 discoveries 
+### Books
+The Phoenix project
