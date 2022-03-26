@@ -12,10 +12,10 @@ parafrase objectives
 copy paste => specification sheet
 
 
- features of the build 
- expound on the features of the build 
- ability to optimize slipage and gas 
- ability to scan the mempoolfor oppotunities ()
+features of the build 
+expound on the features of the build 
+ability to optimize slipage and gas 
+ability to scan the mempoolfor oppotunities ()
 ability to sell rigt after sale transaction 
 alert transaction to telegram once transaction is done
 
